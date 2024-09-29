@@ -1,0 +1,11 @@
+import cv2
+from google.colab.patches import cv2_imshow 
+img = cv2.imread('/content/vijay.jpeg', 0)
+img = cv2.resize(img,(650,520))
+hpf = img - cv2.GaussianBlur(img, (21, 21), 3)+127
+lpf = img - hpf
+cv2_imshow(img)
+cv2_imshow(hpf)
+cv2_imshow(lpf) 
+cv2.waitKey(0)
+cv2.destroyAllWindows()
